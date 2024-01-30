@@ -4,12 +4,12 @@
         <h1>Sign Up</h1>
         <div class="register">
             <div class="half">
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="Family-Name"> 
+                <input class="input" type="text" placeholder="Name">
+                <input class="input" type="text" placeholder="Username"> 
             </div>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="checkbox"> I agree to the Terms & Conditions
+            <input class="input" type="email" placeholder="Email">
+            <input class="input" type="password" placeholder="Password">
+            <span class="check"><input type="checkbox"> I agree to the Terms & Conditions</span>
             <button type="submit">Create my account</button>
         </div>
     </div>
