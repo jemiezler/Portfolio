@@ -1,18 +1,17 @@
 <script>
-import signup from './components/signup.vue';
 export default{
   name: 'App',
-  components:{
-    signup
-  }
 }
 </script>
 
 <template>
-  <signup />
+
+  <router-view></router-view>
+
 </template>
 
 
 <style >
-
+#app{
+}
 </style>

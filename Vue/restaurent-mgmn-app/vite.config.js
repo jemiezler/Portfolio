@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Portfolio/Vue/restaurent-mgmn-app/',
+  //base: '/Portfolio/Vue/restaurent-mgmn-app/',
   plugins: [
     vue(),
   ],

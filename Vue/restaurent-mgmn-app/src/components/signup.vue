@@ -3,14 +3,13 @@
         <img class="logo" src="../assets/logo.ico">
         <h1>Sign Up</h1>
         <div class="register">
-            <div class="half">
-                <input class="input" type="text" placeholder="Name">
-                <input class="input" type="text" placeholder="Username"> 
-            </div>
-            <input class="input" type="email" placeholder="Email">
-            <input class="input" type="password" placeholder="Password">
+            <input class="input" type="text" v-model="name" placeholder="Name">
+            <input class="input" type="text" v-model="username" placeholder="Username"> 
+            <input class="input" type="email" v-model="email" placeholder="Email">
+            <input class="input" type="password" v-model="password" placeholder="Password">
             <span class="check"><input type="checkbox"> I agree to the Terms & Conditions</span>
-            <button type="submit">Create my account</button>
+            <button type="submit" v-on:click="signup">Create my account</button>
+            <a v-on:click="signin">signin</a>
         </div>
     </div>
 
@@ -27,6 +26,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name: 'signup',
     mounted() {
@@ -49,13 +49,46 @@ export default {
         });
 
         move();
-    }
+    },
+    data(){
+        return {
+            name:'',
+            username:'',
+            email:'',
+            password:''
+        }
+    },
+    methods:{
+        async signup(){
+            let result = await axios.post("http://localhost:3000/user",{
+                name: this.name,
+                username: this.username,
+                email: this.email,
+                password: this.password
+            });
+
+            console.warn(result);
+            if(result.status==201){
+                alert("signup done");
+                localStorage.setItem("user-info",JSON.stringify(result.data))
+                this.$router.push({name:'home'}).then(() => {
+                    window.location.reload();
+                })
+            }
+        },
+        signin(){
+            this.$router.push({name:'signin'}).then(() =>{
+                window.location.reload();
+            });
+        }
+    },
 }
+
+
 </script>
 <style>
-
+@import '../assets/signup.css';
 .logo{
     width: 100px;
 }
-    
 </style>

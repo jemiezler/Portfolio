@@ -25,7 +25,6 @@ html, body {
     background-color: black;
     border-radius: 10px;
     width: 20vw;
-    padding-bottom: 2rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -40,6 +39,7 @@ html, body {
   }
 }
 .content {
+  padding: 2rem 1rem;
   z-index: 100;
   display: flex;
   flex-direction: column;
